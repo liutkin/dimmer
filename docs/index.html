@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Simple JavaScript dialog with ability to pass dynamic data declaratively">
     <meta name="keywords" content="javascript, dynamic, modal, dialog, no dependencies">
-    <title>Dimmer JS · Docs</title>
+    <title>🕶️ Dimmer JS · Examples</title>
     <link rel="stylesheet" href="https://unpkg.com/normalize.css">
     <link rel="stylesheet" href="https://unpkg.com/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/cocktailcss">
@@ -13,18 +13,24 @@
   </head>
   <body>
     <div class="padding-4">
-      <button type="button" data-dialog-open="info" data-dialog-payload='[{"test": 42}]'>Open info</button>
+      <button
+        type="button"
+        data-dialog-open="info"
+        data-dialog-payload='[{"test": 42}]'
+      >Open info</button>
     </div>
-    <div class="hidden fixed fill flex justify-center items-center bg-black-60" data-dialog="info">
+    <div
+      class="hidden fixed fill flex justify-center items-center bg-black-60"
+      data-dialog="info"
+    >
       <div class="dialog bg-white">
         test
       </div>
     </div>
     <script src="https://unpkg.com/dimmer"></script>
     <script>
-      const dialog = dimmer()
-
-      dialog.init()
+      const dialog = dimmer();
+      dialog.init();
     </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-![logo](logo.svg)
+# 🕶️ Dimmer
 
 [![npm version](https://img.shields.io/npm/v/dimmer.svg)](https://www.npmjs.com/package/dimmer)
 
@@ -95,11 +95,54 @@ You can pass valid JSON via `data-dialog-payload` attribute. Below given JSON fi
 </div>
 ```
 
-See [more examples](https://lyutkin.github.io/dimmer).
-
 ## Attributes
 
-Coming soon.
+**Attribute**: `data-dialog-open`  
+**Value**: Dialog name.  
+**Placement**: Any element.  
+**Description**: Element with this attribute on click will open up named dialog.
+
+---
+
+**Attribute**: `data-dialog-payload`  
+**Value**: Valid `JSON` string.  
+**Placement**: Element with `data-dialog-open` attribute.  
+**Description**: `JSON` string should be array of objects. Each object describes dynamic field that will overwrite dialog markup. All object keys are mandatory:
+- `field`: `String`. Specifies corresponding field name of `data-dialog-field` inside dialog.
+- `type`: `String ["text"|"value"]`.
+  - `text` will replace inner text of element with provided payload.
+  - `value` will set value of element with provided payload.
+- `payload`: Any. Payload value will overwrite element's inner text or value (according to given `type`).
+
+---
+
+**Attribute**: `data-dialog`  
+**Value**: Dialog name.  
+**Placement**: Element that represents dialog.  
+**Description**: Visibility will be triggered via element with `data-dialog-open` attribute.
+
+---
+
+**Attribute**: `data-dialog-field`  
+**Value**: Field name.  
+**Placement**: Element that accepts dynamic data.  
+**Description**: Inner text or value of this element will be overwritten with data passed via `data-dialog-payload` object.
+
+---
+
+**Attribute**: `data-dialog-close`  
+**Value**: -None-.  
+**Placement**: Any element inside dialog.  
+**Description**: Click on this element will set to `display: none` the closest parent element with `data-dialog` attribute.
+
+---
+
+**Attribute**: `data-dialog-autofocus`  
+**Value**: -None-.  
+**Placement**: Any focusable element inside dialog.  
+**Description**: Element with this attribute gets focused after dialog being shown. *(Tip: Useful for inputs)*
+
+---
 
 ## Options
 
