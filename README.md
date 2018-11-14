@@ -114,13 +114,15 @@ You can pass valid `JSON` via `data-dialog-payload` attribute. Below given `JSON
   - `value` will set value of element to the provided payload.
 - `payload`: Any. Payload value will overwrite element's inner text or value (according to given `type`).
 
-So basically, object...
+So basically, this `data-dialog-payload` attribute value...
 ```javascript
-{
-  "field": "title",
-  "type": "text",
-  "payload": "Hello world"
-}
+[
+  {
+    "field": "title",
+    "type": "text",
+    "payload": "Hello world"
+  }
+]
 ```
 ...will find element with `data-dialog-field="title"` attribute inside dialog and set its inner text to the `Hello world` (`payload` value).
 
