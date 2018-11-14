@@ -4,12 +4,12 @@
 
 <br />
 
-* [What is Dimmer](#what-is-cocktail)
+* [What is Dimmer](#what-is-dimmer)
 * [Getting started](#getting-started)
   * [CDN](#cdn)
   * [Download](#download)
   * [NPM](#npm)
-* [Docs](#docs)
+* [API](#api)
   * [Usage](#usage)
   * [Attributes](#attributes)
   * [Options](#options)
@@ -62,7 +62,7 @@ dialog.init();
 
 <br />
 
-# Docs
+# API
 
 ## Usage
 
@@ -76,7 +76,7 @@ Use `data` attributes to declare dialog trigger and markup.
 </div>
 ```
 
-You can pass valid JSON via `data-dialog-payload` attribute. Below given JSON fields values will be injected in dialog markup upon dialog showing.
+You can pass valid `JSON` via `data-dialog-payload` attribute. Below given `JSON` fields values will be injected in dialog markup upon dialog showing.
 ```html
 <button
   type="button"
@@ -107,12 +107,22 @@ You can pass valid JSON via `data-dialog-payload` attribute. Below given JSON fi
 **Attribute**: `data-dialog-payload`  
 **Value**: Valid `JSON` string.  
 **Placement**: Element with `data-dialog-open` attribute.  
-**Description**: `JSON` string should be array of objects. Each object describes dynamic field that will overwrite dialog markup. All object keys are mandatory:
-- `field`: `String`. Specifies corresponding field name of `data-dialog-field` inside dialog.
+**Description**: `JSON` string should be array of objects. Each object describes a field that relates to the corresponding element with `data-dialog-field` attribute inside dialog markup. All object keys are mandatory:
+- `field`: `String`. Specifies corresponding value of element's `data-dialog-field` attribute inside dialog.
 - `type`: `String ["text"|"value"]`.
   - `text` will replace inner text of element with provided payload.
-  - `value` will set value of element with provided payload.
+  - `value` will set value of element to the provided payload.
 - `payload`: Any. Payload value will overwrite element's inner text or value (according to given `type`).
+
+So basically, object...
+```javascript
+{
+  "field": "title",
+  "type": "text",
+  "payload": "Hello world"
+}
+```
+...will find element with `data-dialog-field="title"` attribute inside dialog and set its inner text to the `Hello world` (`payload` value).
 
 ---
 
@@ -126,19 +136,19 @@ You can pass valid JSON via `data-dialog-payload` attribute. Below given JSON fi
 **Attribute**: `data-dialog-field`  
 **Value**: Field name.  
 **Placement**: Element that accepts dynamic data.  
-**Description**: Inner text or value of this element will be overwritten with data passed via `data-dialog-payload` object.
+**Description**: Inner text or value of this element will be overwritten upon dialog showing with object data passed via `data-dialog-payload` attribute of dialog trigger element.
 
 ---
 
 **Attribute**: `data-dialog-close`  
-**Value**: -None-.  
+**Value**: *None*.  
 **Placement**: Any element inside dialog.  
 **Description**: Click on this element will set to `display: none` the closest parent element with `data-dialog` attribute.
 
 ---
 
 **Attribute**: `data-dialog-autofocus`  
-**Value**: -None-.  
+**Value**: *None*.  
 **Placement**: Any focusable element inside dialog.  
 **Description**: Element with this attribute gets focused after dialog being shown. *(Tip: Useful for inputs)*
 
