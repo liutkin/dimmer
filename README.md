@@ -33,7 +33,7 @@ Dimmer is a simple JavaScript dialog with ability to pass dynamic data via data 
 
 ## CDN
 
-Place the latest production bundle before the closing `</body>` and call dialog `init`.
+Place the latest production bundle before the closing `</body>` and call dialog `init`:
 ```html
 <script src="https://unpkg.com/dimmer"></script>
 <script>

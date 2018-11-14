@@ -2,7 +2,7 @@
   "name": "dimmer",
   "title": "dimmer.js",
   "description": "Simple JavaScript dialog with ability to pass dynamic data declaratively",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/lyutkin/dimmer",
   "repository": "lyutkin/dimmer",
   "scripts": {
