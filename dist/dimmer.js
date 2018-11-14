@@ -24,16 +24,18 @@
     try {
       return JSON.parse(payload);
     } catch (err) {
-      console.error('[Dimmer Dialog] Payload should be valid JSON');
+      console.error('[Dimmer Dialog] Unable to parse JSON payload');
       return null;
     }
   });
 
   var setPayload = {
     text: function text(el, payload) {
+      console.log('text', el, payload);
       el.textContent = payload;
     },
     value: function value(el, payload) {
+      console.log('value', el, payload);
       el.value = payload;
     }
   };
@@ -65,7 +67,7 @@
       try {
         setPayload[type](el, payload);
       } catch (err) {
-        console.error('[Dimmer dialog] Payload type should be "text" or "value"');
+        console.error('[Dimmer dialog] Unable to properly set payloads');
       }
     });
 

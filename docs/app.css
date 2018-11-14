@@ -1,0 +1,13 @@
+.bg-black-60 {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dialog {
+  width: 90vw;
+}
+
+@media screen and (min-width: 992px) {
+  .dialog {
+    width: 700px;
+  }
+}

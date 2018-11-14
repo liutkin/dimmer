@@ -2,7 +2,7 @@ export default payload => {
   try {
     return JSON.parse(payload);
   } catch (err) {
-    console.error('[Dimmer Dialog] Payload should be valid JSON');
+    console.error('[Dimmer Dialog] Unable to parse JSON payload');
     return null;
   }
 };

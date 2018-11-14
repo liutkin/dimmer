@@ -14,7 +14,7 @@ export default (name, payload, { dialogActiveBodyClass }) => {
     try {
       setPayload[type](el, payload);
     } catch (err) {
-      console.error('[Dimmer dialog] Payload type should be "text" or "value"');
+      console.error('[Dimmer dialog] Unable to properly set payloads');
     }
   });
 
