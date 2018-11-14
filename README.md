@@ -76,12 +76,12 @@ Use `data` attributes to declare dialog trigger and markup.
 </div>
 ```
 
-You can pass valid `JSON` via `data-dialog-payload` attribute. Below given `JSON` fields values will be injected in dialog markup upon dialog showing.
+You can pass valid `JSON` via `data-dialog-payload` attribute. Below given `JSON` fields payloads will be injected in dialog markup upon dialog showing.
 ```html
 <button
   type="button"
   data-dialog-open="info"
-  data-dialog-payload='[{"field": "title", "type": "text", "value": "Info"}, {"field": "greeting", "type": "value", "value": "Hello"}]'
+  data-dialog-payload='[{"field": "title", "type": "text", "payload": "Info"}, {"field": "greeting", "type": "value", "payload": "Hello"}]'
 >Open info dialog</button>
 
 <div data-dialog="info" style="display: none;">
@@ -89,7 +89,6 @@ You can pass valid `JSON` via `data-dialog-payload` attribute. Below given `JSON
   <input
     type="text"
     data-dialog-field="greeting"
-    data-dialog-autofocus
   >
   <a href="#" data-dialog-close>Close this dialog</a>
 </div>
