@@ -13,24 +13,83 @@
   </head>
   <body>
     <div class="padding-4">
-      <button
-        type="button"
-        data-dialog-open="info"
-        data-dialog-payload='[{"test": 42}]'
-      >Open info</button>
+      <div>
+        <a href="https://github.com/lyutkin/dimmer">← Back to the repository</a>
+      </div>
+      <div class="padding-top-5">
+        <div class="padding-y-2">
+          <div>Dialog 1</div>
+          Simple dialog with no dynamic data passed
+          <button type="button" data-dialog-open="dialog1">Open</button>
+        </div>
+        <hr>
+        <div class="padding-y-2">
+          <div>Dialog 2</div>
+          Dialog with dynamic data passed
+          <button
+            type="button"
+            data-dialog-open="dialog2"
+            data-dialog-payload='[{"field": "name", "type": "text", "payload": "John"}]'
+          >Greet John</button>
+          <button
+            type="button"
+            data-dialog-open="dialog2"
+            data-dialog-payload='[{"field": "name", "type": "text", "payload": "David"}]'
+          >Greet David</button>
+        </div>
+        <hr>
+        <div class="padding-y-2">
+          <div>Dialog 3</div>
+          Dialog with dynamic data and autofocus
+          <button
+            type="button"
+            data-dialog-open="dialog3"
+            data-dialog-payload='[{"field": "title", "type": "text", "payload": "Apple"}, {"field": "input", "type": "value", "payload": "apple"}]'
+          >Open for apple</button>
+          <button
+            type="button"
+            data-dialog-open="dialog3"
+            data-dialog-payload='[{"field": "title", "type": "text", "payload": "Mango"}, {"field": "input", "type": "value", "payload": "mango"}]'
+          >Open for mango</button>
+          <button
+            type="button"
+            data-dialog-open="dialog3"
+            data-dialog-payload='[{"field": "title", "type": "text", "payload": "Peach"}, {"field": "input", "type": "value", "payload": "peach"}]'
+          >Open for peach</button>
+        </div>
+      </div>
     </div>
-    <div
-      class="hidden fixed fill flex justify-center items-center bg-black-60"
-      data-dialog="info"
-    >
-      <div class="dialog bg-white">
-        test
+    <div style="display: none;" data-dialog="dialog1">
+      <div class="fixed fill flex justify-center items-center">
+        <div class="absolute fill bg-black-60" data-dialog-close></div>
+        <div class="dialog border-rounded-2 padding-4 bg-white animated fadeInDown faster">Hello world <a href="#" data-dialog-close>Close</a></div>
+      </div>
+    </div>
+    <div style="display: none;" data-dialog="dialog2">
+      <div class="fixed fill flex justify-center items-center">
+        <div class="absolute fill bg-black-60" data-dialog-close></div>
+        <div class="dialog border-rounded-2 padding-4 bg-white animated lightSpeedIn faster">Hello <span data-dialog-field="name"></span> <a href="#" data-dialog-close>Close</a></div>
+      </div>
+    </div>
+    <div style="display: none;" data-dialog="dialog3">
+      <div class="fixed fill flex justify-center items-center">
+        <div class="absolute fill bg-black-60" data-dialog-close></div>
+        <div class="dialog border-rounded-2 padding-4 bg-white animated slideInDown faster">
+          <h3 data-dialog-field="title"></h3>
+          <input
+            type="text"
+            data-dialog-field="input"
+            data-dialog-autofocus
+          >
+          <a href="#" data-dialog-close>Close</a>
+        </div>
       </div>
     </div>
     <script src="https://unpkg.com/dimmer"></script>
     <script>
-      const dialog = dimmer();
-      dialog.init();
+      const dialog = dimmer()
+
+      dialog.init()
     </script>
   </body>
 </html>

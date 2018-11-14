@@ -1,3 +1,22 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+  font-family: Helvetica, sans-serif;
+  color: black;
+  line-height: 1.5;
+  background-color: white;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 .bg-black-60 {
   background-color: rgba(0, 0, 0, 0.6);
 }
@@ -9,5 +28,11 @@
 @media screen and (min-width: 992px) {
   .dialog {
     width: 700px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  html {
+    font-size: 20px;
   }
 }
