@@ -8,14 +8,6 @@
     dialogActiveBodyClass: false
   };
 
-  var getDialogOpenTriggers = (function () {
-    return document.querySelectorAll('[data-dialog-open]');
-  });
-
-  var getDialogCloseTriggers = (function () {
-    return document.querySelectorAll('[data-dialog-close]');
-  });
-
   var getClosestDialogName = function getClosestDialogName(el) {
     return el.getAttribute('data-dialog') || getClosestDialogName(el.parentNode);
   };
@@ -82,7 +74,7 @@
     var dialogActiveBodyClass = _ref.dialogActiveBodyClass;
 
     var dialogElement = document.querySelector('[data-dialog="' + name + '"]');
-    document.body.classList.remove(dialogActiveBodyClass);
+    dialogActiveBodyClass && document.body.classList.remove(dialogActiveBodyClass);
     dialogElement.style.display = 'none';
 
     hooks.onHide.filter(function (item) {
@@ -99,7 +91,7 @@
 
     var options = _extends({}, defaultOptions, userOptions);
 
-    getDialogOpenTriggers().forEach(function (trigger) {
+    document.querySelectorAll('[data-dialog-open]').forEach(function (trigger) {
       trigger.addEventListener('click', function (e) {
         e.preventDefault();
         var dialogName = this.getAttribute('data-dialog-open');
@@ -110,7 +102,7 @@
       });
     });
 
-    getDialogCloseTriggers().forEach(function (trigger) {
+    document.querySelectorAll('[data-dialog-close]').forEach(function (trigger) {
       trigger.addEventListener('click', function (e) {
         e.preventDefault();
         var dialogName = getClosestDialogName(this);

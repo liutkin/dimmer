@@ -2,10 +2,6 @@ var defaultOptions = {
   dialogActiveBodyClass: false,
 };
 
-var getDialogOpenTriggers = () => document.querySelectorAll('[data-dialog-open]');
-
-var getDialogCloseTriggers = () => document.querySelectorAll('[data-dialog-close]');
-
 const getClosestDialogName = el =>
   el.getAttribute('data-dialog') || getClosestDialogName(el.parentNode);
 
@@ -62,7 +58,8 @@ var show = (name, payload, { dialogActiveBodyClass }) => {
 
 var hide = (name, { dialogActiveBodyClass }) => {
   const dialogElement = document.querySelector(`[data-dialog="${name}"]`);
-  document.body.classList.remove(dialogActiveBodyClass);
+  dialogActiveBodyClass &&
+    document.body.classList.remove(dialogActiveBodyClass);
   dialogElement.style.display = 'none';
 
   hooks.onHide
@@ -73,7 +70,7 @@ var hide = (name, { dialogActiveBodyClass }) => {
 var init = (userOptions = {}) => {
   const options = { ...defaultOptions, ...userOptions };
 
-  getDialogOpenTriggers().forEach(trigger => {
+  document.querySelectorAll('[data-dialog-open]').forEach(trigger => {
     trigger.addEventListener('click', function(e) {
       e.preventDefault();
       const dialogName = this.getAttribute('data-dialog-open');
@@ -84,7 +81,7 @@ var init = (userOptions = {}) => {
     });
   });
 
-  getDialogCloseTriggers().forEach(trigger => {
+  document.querySelectorAll('[data-dialog-close]').forEach(trigger => {
     trigger.addEventListener('click', function(e) {
       e.preventDefault();
       const dialogName = getClosestDialogName(this);
