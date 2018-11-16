@@ -9,8 +9,8 @@
   * [CDN](#cdn)
   * [Download](#download)
   * [NPM](#npm)
+* [Usage](#usage)
 * [API](#api)
-  * [Usage](#usage)
   * [Attributes](#attributes)
   * [Options](#options)
   * [Events](#events)
@@ -24,6 +24,8 @@ Dimmer is a simple JavaScript dialog with ability to pass dynamic data via data 
 
 - No default styling
 - No dependencies
+- Zero-configuration out-of-the-box
+- Utilizes HTML5 `data` attributes
 - `onShow` and `onHide` hooks
 - 🔥 `0.8 kB` gziped
 
@@ -62,37 +64,39 @@ dialog.init();
 
 <br />
 
-# API
-
-## Usage
+# Usage
 
 Use `data` attributes to declare dialog trigger and markup.
 ```html
-<button type="button" data-dialog-open="info">Open info dialog</button>
+<button type="button" data-dialog-open="foo">Open info dialog</button>
 
-<div data-dialog="info" style="display: none;">
-  <h3>Info dialog</h3>
+<div data-dialog="foo" style="display: none;">
+  <h3>Foo dialog</h3>
   <a href="#" data-dialog-close>Close this dialog</a>
 </div>
 ```
 
-You can pass valid `JSON` via `data-dialog-payload` attribute. Below given `JSON` fields payloads will be injected in dialog markup upon dialog showing.
+You can pass valid `JSON` via `data-dialog-payload` attribute. Below given `JSON` fields payloads will be injected upon dialog showing.
 ```html
 <button
   type="button"
-  data-dialog-open="info"
-  data-dialog-payload='[{"field": "title", "type": "text", "payload": "Info"}, {"field": "greeting", "type": "value", "payload": "Hello"}]'
->Open info dialog</button>
+  data-dialog-open="foo"
+  data-dialog-payload='[{"field": "title", "type": "text", "payload": "Foo"}, {"field": "input", "type": "value", "payload": "bar"}]'
+>Open foo dialog</button>
 
-<div data-dialog="info" style="display: none;">
+<div data-dialog="foo" style="display: none;">
   <h3 data-dialog-field="title"></h3>
   <input
     type="text"
-    data-dialog-field="greeting"
+    data-dialog-field="input"
   >
   <a href="#" data-dialog-close>Close this dialog</a>
 </div>
 ```
+
+See [Examples](https://lyutkin.github.io/dimmer/).
+
+# API
 
 ## Attributes
 
@@ -194,8 +198,8 @@ Examples:
 var dialog = dimmer();
 
 dialog.init();
-dialog.onShow('info', function(dialogElement) {
-  console.log('Info dialog shown', dialogElement);
+dialog.onShow('foo', function(dialogElement) {
+  console.log('foo dialog shown', dialogElement);
 })
 ```
 
@@ -203,8 +207,8 @@ dialog.onShow('info', function(dialogElement) {
 var dialog = dimmer();
 
 dialog.init();
-dialog.onHide('video', function(dialogElement) {
-  console.log('Video dialog hidden', dialogElement);
+dialog.onHide('bar', function(dialogElement) {
+  console.log('bar dialog hidden', dialogElement);
 })
 ```
 
