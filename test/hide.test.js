@@ -1,4 +1,4 @@
-import hide from './hide';
+import hide from '../src/hide';
 
 const wrapperEl = document.createElement('div');
 wrapperEl.setAttribute('data-dialog', 'test');

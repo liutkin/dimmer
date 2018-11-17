@@ -1,4 +1,4 @@
-import setPayload from './setPayload';
+import setPayload from '../src/setPayload';
 
 test('must update text content of element', () => {
   const el = document.createElement('div');

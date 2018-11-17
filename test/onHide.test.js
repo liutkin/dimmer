@@ -1,5 +1,5 @@
-import onHide from './onHide';
-import hooks from './hooks';
+import onHide from '../src/onHide';
+import hooks from '../src/hooks';
 
 test('must be a function', () => {
   expect(typeof onHide).toBe('function');

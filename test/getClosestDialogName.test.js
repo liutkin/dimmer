@@ -1,4 +1,4 @@
-import getClosestDialogName from './getClosestDialogName';
+import getClosestDialogName from '../src/getClosestDialogName';
 
 test('must return closest parent dialog name', () => {
   const wrapperEl = document.createElement('div');

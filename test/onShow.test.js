@@ -1,5 +1,5 @@
-import onShow from './onShow';
-import hooks from './hooks';
+import onShow from '../src/onShow';
+import hooks from '../src/hooks';
 
 test('must be a function', () => {
   expect(typeof onShow).toBe('function');

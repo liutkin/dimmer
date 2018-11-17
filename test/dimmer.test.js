@@ -1,4 +1,4 @@
-import dimmer from './dimmer';
+import dimmer from '../src/dimmer';
 
 test('must be a function', () => {
   expect(typeof dimmer).toBe('function');

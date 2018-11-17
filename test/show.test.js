@@ -1,4 +1,4 @@
-import show from './show';
+import show from '../src/show';
 
 const wrapperEl = document.createElement('div');
 wrapperEl.style.display = 'none';

@@ -1,4 +1,4 @@
-import hooks from './hooks';
+import hooks from '../src/hooks';
 
 test('must be an object', () => {
   expect(typeof hooks).toBe('object');

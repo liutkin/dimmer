@@ -1,4 +1,4 @@
-import getPayload from './getPayload';
+import getPayload from '../src/getPayload';
 
 const validPayload = `[{"field": "test", "type": "text", "payload": 42}]`;
 const invalidPayload = `foo`;
